@@ -25,6 +25,8 @@ Use vim to edit you file
 vim smartmirror.py
 This will open up my file and it has 3 variables set:  
 
+![image](https://user-images.githubusercontent.com/7346913/39523829-91f43442-4e34-11e8-9207-7f9784fef21c.png)
+
 (1)IP-Set the IP address of Raspberry pi. As the IP address is used for location to determine the weather of the location.
 (2):country code-you can replace this with your own country code.
 (3)weather_api_token:This is derived from a site called forecast.io. Replace weather_api_token with the token you got from forecast.io.You can obtain the API token by registering and creating an acoount at forecast.io.
@@ -37,7 +39,9 @@ python smartmirror.py
 
 Output
 Depending on the network connection, it might take a few seconds to startup,
- 
+
+![image](https://user-images.githubusercontent.com/7346913/39523887-c815360c-4e34-11e8-9704-16ad7efad545.png)
+
 The above picture depicts the typical display of a Smart Mirror using IOT.
 ->Press enter for Maximized full screen and press Esc for minimized o/p screen.
 Later on, let’s hook up our Raspberry pi onto the Smart Mirror and set it up so that it up runs the application.
@@ -59,27 +63,38 @@ https://github.com/HackerShackOfficial/Smart-Mirror
 ________________________________________________________________________________________________________________________________________
 
 AI:
+
 STEP 1 : Create AI_smart_Mirror folder inside that clone magic mirror  repository this needs to be running before we can start up our AI client because it is dependent on this front-end running because it sends HTTP calls to this front-end so you can clone this repository or download it download a zip here if you want to clone it you have to have get installed so if I tag git clone and the name of this repository it will clone into a folder on raspberry pi.
+
 STEP 2 : Installation of node.js and npm on raspberry pi. 
 The next thing I'm going to want to do is make sure I have no js' installed and nodejs is basically a JavaScript server which this magic mirror uses to run.
+
 Step 1: First remove existing old version from Raspberry Pi
 pi@raspberrypi:~ $ sudo -i
 root@raspberrypi:~# apt-get remove nodered -y
 root@raspberrypi:~# apt-get remove nodejs nodejs-legacy -y
 root@raspberrypi:~# exit
+
 Step 2: Installing n will automatically install latest stable version of Node.js
 curl -L https://git.io/n-install | bash
  
+![image](https://user-images.githubusercontent.com/7346913/39523922-e0eb6430-4e34-11e8-9ecf-a86e93f247d5.png)
 
 Step 3: Verify your installation version
 pi@raspberrypi:~ $ node --version
 pi@raspberrypi:~ $ npm --version
- 
-STEP 3: NPM install  will install the dependencies that magic Mirror needs okay now it's finished installing it might throw some errors but it should still run regardless of these errors.
-STEP 4: NPM start it will start this program called electron which is basically a web browser inside of an application and then it tells us that we need to create a config file
+
+![image](https://user-images.githubusercontent.com/7346913/39523940-f371df30-4e34-11e8-8037-3861a0fba515.png)
+
+STEP 4: NPM install  will install the dependencies that magic Mirror needs okay now it's finished installing it might throw some errors but it should still run regardless of these errors.
+
+STEP 5: NPM start it will start this program called electron which is basically a web browser inside of an application and then it tells us that we need to create a config file
+
 STEP 6: I go into magic mirror I can copy both of these folders over to my magic mirror project inside magic mirror there's a modules folder and you'll just have to copy those files and paste them in this folder so I can actually just do that in finder so I have this is in my AI smart mirror repository I can go into magic mirror copy these two files and then if I go into magic mirror and paste those files and modules that will work and then if I go back to my AI smart mirror and I copy this config file go to magic mirror and in the config folder paste this file if I go back to terminal and return to my magic mirror folder
+
 STEP 7:TO CHECK IF MY MAGIC MIRROR IS WORKING
 Type NPM start it starts the magic mirror application and I can test that this works by going to a web browser and typing localhost 8080 slash statement question mark text equals and then any text that you want to display and if I go over to my smart mirror it seems that everything's working and it displays that text and you can clear that statement if you want by doing slash clear and now it's gone you can also stop the magic mirror application by pressing ctrl C
+
 STEP 8:LINUX BREW INSTALLATION
 We need to install a few dependencies in order for this to work so we are going to use linuxbrew to do that, linuxbrew is sort of like homebrew for Mac OS,Raspbian use it to install dependencies and you can also use it to uninstall things. The installation script installs Linuxbrew to /home/linuxbrew/.linuxbrew if possible and in your home directory at ~/.linuxbrew otherwise.
 Paste at a Terminal prompt:
@@ -93,40 +108,55 @@ You’re done! Try installing a package:
 brew install hello
 If you’re using an older distribution of Linux, installing your first package will also install a recent version of gcc.
 
-
 STEP 9:INSTALLATION OF FFMPEG
- 
+
+ ![image](https://user-images.githubusercontent.com/7346913/39523972-0ea0ca5a-4e35-11e8-9553-baeb9a7e6b17.png)
+
 I'm going to run brew install ffmpeg command and so that ffmpeg is used by our speech recognition module to transcode and play audio.
+
 STEP 10:Install open cv 
 Install openCV with
 brew tap homebrew/science
 brew install opencv
 
+![image](https://user-images.githubusercontent.com/7346913/39523989-26720e46-4e35-11e8-9b04-9595dd8b3851.png)
 
-
-
- 
 Check the version with
 cd /usr/local/Cellar/opencv
 ls
+
 STEP 11:SETTING UP A VIRTUAL ENVIRONMENT
 Set up a virtual environment for Python since our AI code is written in Python we want an easy way to install dependencies and not affect anything else on your system so we have this script in the AI smart mirrored directory called setup SH (use the command cat setup.sh) and this just creates a virtual environment called hacker house smart mirror or HH smart mirror and then it makes that virtual environment active and then installs all the dependencies in that virtual environment so I'm going to run sudo ./setup.sh and this will automatically install the dependencies for us.
  
+![image](https://user-images.githubusercontent.com/7346913/39524000-34b232f6-4e35-11e8-8501-07bed9ffae1b.png)
+
 STEP 12:ACTIVATION OF THE VIRTUAL ENVIRONMENT
 Now that everything is installed we need to run source .hhsmartmirror/bin/activate and running this command will activate our virtual environment within the context of this terminal session so every time you open up a new terminal window and want to start this program you'll have to activate your virtual environment and then you know it's active when you have this parenthesis HH smart mirror in front of your terminal session. ok so now we need to do a couple more things to get this working inside of a the models folder so in the repository there is a.A models folder inside of the models folder there are two models facial-recognition model is used for detecting faces so when we have our webcam hooked up this is basically just a bunch of data points that help the computer vision code determine if there's a face in the image we'll use that for our facial recognition module there's also a wit training data zip and wit AI is what we're using for natural language understanding.
-STEP  : Link the cv.py and cv2.so files and replace $VERSION with the version you found
-Deactivate the virtual environment
-deactivate
 
+STEP 13: Link the cv.py and cv2.so files and replace $VERSION with the version you found
+Deactivate the virtual environment
+
+deactivate
 ln -s /usr/local/Cellar/opencv/$VERSION/lib/python2.7/site-packages/cv.py cv.py
 ln -s /usr/local/Cellar/opencv/$VERSION/lib/python2.7/site-packages/cv2.so cv2.so
+
 Check that the files are there
 ls
+
 STEP 14: Edit the bot.py file
 We have our wit.aI token so we’re just going to edit this and make sure my value is within the quotes and paste it here and you can also notice that there's this weather API token .We got the API token from forecast.IO , forecast.IO has now changed to dark sky net so if you go to dark sky net you can create another account and get an API token from these guys so if I scroll down to the bottom click dark sky API sign up it will give you a API token that you can replace in here. Okay We've edited both those tokens in my bot.py file.
+
 Step 15:Test the launch phrase(Output)
 We need to make sure that we start our magic mirror before we start the AI portion so I'm going to go into magic mirror directory and type NPM start okay so now that has started I'm going to go back to my AI smart mirror folder using the cd commands and reactivate the virtual environment using source hhsmartmirror/bin/activate and type Python3 bot.py.
-  
+
+![image](https://user-images.githubusercontent.com/7346913/39524022-45c71868-4e35-11e8-8433-f7cc7bad14de.png)
+![image](https://user-images.githubusercontent.com/7346913/39524043-593b3bea-4e35-11e8-9e7b-a354732f7bd0.png)
+![image](https://user-images.githubusercontent.com/7346913/39524055-65a7576a-4e35-11e8-821a-8dcf3fdd736e.png)
+
 Original developers:
+
 https://github.com/HackerShackOfficial/AI-Smart-Mirror
+
 https://github.com/MichMich/MagicMirror
+
+![8](https://user-images.githubusercontent.com/7346913/39523767-59de16ea-4e34-11e8-9d3f-f6c7f41ba0d4.png)
