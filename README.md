@@ -54,21 +54,9 @@ This is to save the file.
 Later on, we need to restart the Raspberry pi.
 Now in the portrait orientation, run the application and press enter to make it full screen and we have our very own smart mirror set up!
 Original developers:
+https://github.com/HackerShackOfficial/Smart-Mirror
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+________________________________________________________________________________________________________________________________________
 
 AI:
 STEP 1 : Create AI_smart_Mirror folder inside that clone magic mirror  repository this needs to be running before we can start up our AI client because it is dependent on this front-end running because it sends HTTP calls to this front-end so you can clone this repository or download it download a zip here if you want to clone it you have to have get installed so if I tag git clone and the name of this repository it will clone into a folder on raspberry pi.
@@ -140,8 +128,5 @@ Step 15:Test the launch phrase(Output)
 We need to make sure that we start our magic mirror before we start the AI portion so I'm going to go into magic mirror directory and type NPM start okay so now that has started I'm going to go back to my AI smart mirror folder using the cd commands and reactivate the virtual environment using source hhsmartmirror/bin/activate and type Python3 bot.py.
   
 Original developers:
-IOT:
-https://github.com/HackerShackOfficial/Smart-Mirror
-AI:
 https://github.com/HackerShackOfficial/AI-Smart-Mirror
 https://github.com/MichMich/MagicMirror
